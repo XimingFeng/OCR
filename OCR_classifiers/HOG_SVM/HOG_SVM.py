@@ -1,12 +1,19 @@
 import numpy as np
 
-class HOG_SVM(object):
+class classifier_HOG_SVM(object):
 
     def __init__(self, imgs, meta, num_train, num_val):
-
+        """
+        put images and meta data into training, validation and testing sets
+        :param imgs: height * width * num_train, stack of images
+        :param meta: meta data that contains meta info for all the images
+        :param num_train: number of images for training
+        :param num_val: number of images for validation
+        """
         self.img = imgs
         self.meta = meta
         num_total = len(self.meta)
+        print("Total number of images is ", num_total)
         self.num_train = num_train
         self.num_val = num_val
         self.num_test = num_total - num_train
