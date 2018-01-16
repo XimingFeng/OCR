@@ -42,9 +42,7 @@ class IAM_Img_Handler(object):
         :return:
         """
         selected_meta_index = np.random.choice(range(self.data_size), 8, replace=False)
-        print("We choose the picture according to index: ", selected_meta_index)
         pics_meta = self.meta_data[selected_meta_index]
-        print("Selected pictures meta data are ", pics_meta)
         plt.figure(1)
         axes = 341
         if self.content_type == "words":
@@ -55,8 +53,6 @@ class IAM_Img_Handler(object):
                 loc1 = location[0]
                 loc2 = loc1 + "-" + location[1]
                 path += loc1 + "/" + loc2 + "/" + "-".join(location) + ".png"
-                print("Showing picture located at ", path, " and with meaning: ", word)
-                # plt.axes("off")
                 img = cv2.imread(path)
                 plt.subplot(axes)
                 plt.title(word)
@@ -78,7 +74,6 @@ class IAM_Img_Handler(object):
             loc2 = loc1 + "-" + location[1]
             path += loc1 + "/" + loc2 + "/" + img_index + ".png"
             img = cv2.imread(path, 0)
-            print("The shape of the image is ", img.shape)
         return img
 
     def load_imgs(self, num_img):
@@ -90,7 +85,6 @@ class IAM_Img_Handler(object):
         """
         selected_meta_index = np.random.choice(range(self.data_size), num_img, replace=False)
         pics_meta = self.meta_data[selected_meta_index]
-        print("Selected pictures meta data are ", pics_meta)
         img_list = []
         for meta in pics_meta:
             img_index = meta[0]
@@ -100,5 +94,4 @@ class IAM_Img_Handler(object):
             ret_val, thresholded_img = cv2.threshold(resized_img, threshold_index, 255, cv2.THRESH_BINARY)
             img_list.append(thresholded_img)
         img_list = np.dstack(img_list)
-        print("The size of the image list is ", img_list.shape)
         return img_list, pics_meta
