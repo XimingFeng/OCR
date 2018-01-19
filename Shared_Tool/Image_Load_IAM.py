@@ -90,7 +90,7 @@ class IAM_Img_Handler(object):
             img_index = meta[0]
             threshold_index = meta[2]
             img = self.get_image_by_index(img_index)
-            resized_img = cv2.resize(img, (200, 200))
+            resized_img = cv2.resize(img, (256, 256))
             ret_val, thresholded_img = cv2.threshold(resized_img, threshold_index, 255, cv2.THRESH_BINARY)
             img_list.append(thresholded_img)
         img_list = np.dstack(img_list)

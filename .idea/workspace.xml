@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7404f0f-3e95-4fca-805a-782c80662053" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/xfeng.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/xfeng.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/IAM_HOG_SVM-checkpoint.ipynb" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/IAM_HOG_SVM-checkpoint.ipynb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IAM_HOG_SVM.ipynb" afterPath="$PROJECT_DIR$/IAM_HOG_SVM.ipynb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OCR_classifiers/HOG_SVM/HOG_SVM.py" afterPath="$PROJECT_DIR$/OCR_classifiers/HOG_SVM/HOG_SVM.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shared_Tool/Image_Load_IAM.py" afterPath="$PROJECT_DIR$/Shared_Tool/Image_Load_IAM.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,12 +16,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="HOG_SVM.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/OCR_classifiers/HOG_SVM/HOG_SVM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-460">
-              <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+            <state relative-caret-position="619">
+              <caret line="90" column="59" lean-forward="false" selection-start-line="90" selection-start-column="59" selection-end-line="90" selection-end-column="59" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -31,10 +32,10 @@
       <file leaf-file-name="Image_Load_IAM.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Shared_Tool/Image_Load_IAM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="10" lean-forward="true" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
+            <state relative-caret-position="1081">
+              <caret line="92" column="51" lean-forward="false" selection-start-line="92" selection-start-column="51" selection-end-line="92" selection-end-column="51" />
               <folding>
-                <element signature="e#155#1819#0" expanded="false" />
+                <element signature="e#0#10#0" expanded="true" />
                 <element signature="e#1855#2690#0" expanded="false" />
                 <element signature="e#2745#3313#0" expanded="false" />
               </folding>
@@ -65,9 +66,9 @@
       <list>
         <option value="$PROJECT_DIR$/Shared_Tool/Image_Load.py" />
         <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/Shared_Tool/Image_Load_IAM.py" />
         <option value="$PROJECT_DIR$/Models/HOG_SVM/HOG_SVM.py" />
         <option value="$PROJECT_DIR$/IAM_HOG_SVM.ipynb" />
+        <option value="$PROJECT_DIR$/Shared_Tool/Image_Load_IAM.py" />
         <option value="$PROJECT_DIR$/OCR_classifiers/HOG_SVM/HOG_SVM.py" />
       </list>
     </option>
@@ -94,6 +95,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -122,7 +124,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -199,8 +200,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20149253" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20362474" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25652173" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -244,10 +246,34 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/OCR_classifiers/HOG_SVM/HOG_SVM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shared_Tool/Image_Load_IAM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="10" lean-forward="true" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#1855#2690#0" expanded="false" />
+            <element signature="e#2745#3313#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/IAM_HOG_SVM.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -331,10 +357,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Shared_Tool/Image_Load_IAM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="10" lean-forward="true" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
+        <state relative-caret-position="1081">
+          <caret line="92" column="51" lean-forward="false" selection-start-line="92" selection-start-column="51" selection-end-line="92" selection-end-column="51" />
           <folding>
-            <element signature="e#155#1819#0" expanded="false" />
+            <element signature="e#0#10#0" expanded="true" />
             <element signature="e#1855#2690#0" expanded="false" />
             <element signature="e#2745#3313#0" expanded="false" />
           </folding>
@@ -343,8 +369,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/OCR_classifiers/HOG_SVM/HOG_SVM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-460">
-          <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+        <state relative-caret-position="619">
+          <caret line="90" column="59" lean-forward="false" selection-start-line="90" selection-start-column="59" selection-end-line="90" selection-end-column="59" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
