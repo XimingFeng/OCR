@@ -4,6 +4,8 @@
       <w>binarized</w>
       <w>imgs</w>
       <w>preprocessing</w>
+      <w>resized</w>
+      <w>thresholded</w>
     </words>
   </dictionary>
 </component>
