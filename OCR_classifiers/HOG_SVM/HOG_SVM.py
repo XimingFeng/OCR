@@ -4,21 +4,24 @@ from sklearn import svm
 from skimage.feature import hog
 from skimage import exposure
 import matplotlib.pyplot as plt
+import time
 
 class Classifier_HOG_SVM(object):
 
-    def __init__(self, imgs, meta, num_train, num_val):
+    def __init__(self, imgs, meta, num_train, num_val, pixel_per_cell=64):
         """
         put images and meta data into training, validation and testing sets
         :param imgs: height * width * num_train, stack of images
         :param meta: meta data that contains meta info for all the images
         :param num_train: number of images for training
         :param num_val: number of images for validation
+        :param pixel_per_cell: number of pixel per cell. It is used when generating histogram
         """
+        start_time = time.time()
         self.img = imgs
         self.meta = meta
         self.num_total = len(self.meta)
-        self.imgs_HOG, self.y, self.label_table, self.grad_images = self.data_preprocessing(imgs, meta)
+        self.imgs_HOG, self.y, self.label_table, self.grad_images = self.data_preprocessing(imgs, meta, pixel_per_cell)
         self.num_train = num_train
         self.num_val = num_val
         self.num_test = self.num_total - num_train
@@ -31,10 +34,11 @@ class Classifier_HOG_SVM(object):
         selected_test_index = np.delete(np.arange(self.num_total), selected_train_index)
         self.X_test = self.imgs_HOG[selected_test_index, :]
         self.y_test = self.y[selected_test_index]
-        print("The shape of the training, validation and tesing data is ",
+        print("The shape of the training, validation and testing data is ",
         self.X_train.shape, self.X_val.shape, self.X_test.shape)
+        print("It takes ", time.time() - start_time, " seconds to initiate this model")
 
-    def data_preprocessing(self, imgs, meta_list):
+    def data_preprocessing(self, imgs, meta_list, pixel_per_cell):
         """
         convert string labels of images to int labels
         convert raw images into HOG vectors
@@ -61,15 +65,15 @@ class Classifier_HOG_SVM(object):
             (descriptor, grad_image) = \
                 hog(img,
                     orientations=9,
-                    pixels_per_cell=(16, 16),
+                    pixels_per_cell=(pixel_per_cell, pixel_per_cell),
                     cells_per_block=(2, 2),
                     visualise=True,
                     transform_sqrt=True)
-            grad_image = exposure.rescale_intensity(grad_image, out_range=(0, 255))
-            grad_image = grad_image.astype("uint8")
             descriptor = descriptor.reshape((descriptor.shape[0], ))
             img_hog.append(descriptor)
             grad_images.append(grad_image)
+            if img_idx % 100 == 0:
+                print(img_idx, " images has been preprocessed")
         img_hog = np.array(img_hog)
         grad_images = np.array(grad_images)
         print("Shape of gradient images is ", grad_images.shape)
@@ -77,9 +81,23 @@ class Classifier_HOG_SVM(object):
 
 
     def train(self):
-        model = svm.SVC()
-        model.fit(self.X_train, self.y_train)
+        """
+        Training data
+        :return:
+        """
+        self.model = svm.SVC(kernel="linear", C=1, gamma="auto")
+        start_time = time.time()
+        self.model.fit(self.X_train, self.y_train)
+        print("It takes ", time.time() - start_time, " seconds to train the model")
 
+
+    def predict(self, x):
+        """
+        The input data
+        :param x:
+        :return:
+        """
+        return self.model.predict(x)
 
 
     def show_random_histogram(self):
@@ -97,6 +115,6 @@ class Classifier_HOG_SVM(object):
             plt.imshow(self.img[:, :, img_index], cmap='Greys')
             plt.subplot(axs + 1)
             plt.title(self.meta[img_index][8] + " gradient image")
-            plt.imshow(self.grad_images[img_index, :, :])
+            plt.imshow(self.grad_images[img_index, :, :], cmap=plt.cm.gray)
             axs += 2
         plt.show()
