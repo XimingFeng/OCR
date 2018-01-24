@@ -8,7 +8,7 @@ import time
 
 class Classifier_HOG_SVM(object):
 
-    def __init__(self, imgs, meta, num_train, num_val, pixel_per_cell=64):
+    def __init__(self, imgs, meta, num_train, num_val, orientation=9, pixel_per_cell=64):
         """
         put images and meta data into training, validation and testing sets
         :param imgs: height * width * num_train, stack of images
@@ -21,7 +21,8 @@ class Classifier_HOG_SVM(object):
         self.img = imgs
         self.meta = meta
         self.num_total = len(self.meta)
-        self.imgs_HOG, self.y, self.label_table, self.grad_images = self.data_preprocessing(imgs, meta, pixel_per_cell)
+        self.imgs_HOG, self.y, self.label_table, self.grad_images = \
+            self.data_preprocessing(imgs, meta, orientation=orientation, pixel_per_cell=pixel_per_cell)
         self.num_train = num_train
         self.num_val = num_val
         self.num_test = self.num_total - num_train
@@ -38,7 +39,7 @@ class Classifier_HOG_SVM(object):
         self.X_train.shape, self.X_val.shape, self.X_test.shape)
         print("It takes ", time.time() - start_time, " seconds to initiate this model")
 
-    def data_preprocessing(self, imgs, meta_list, pixel_per_cell):
+    def data_preprocessing(self, imgs, meta_list, orientation, pixel_per_cell):
         """
         convert string labels of images to int labels
         convert raw images into HOG vectors
@@ -64,7 +65,7 @@ class Classifier_HOG_SVM(object):
             img = imgs[:, :, img_idx]
             (descriptor, grad_image) = \
                 hog(img,
-                    orientations=9,
+                    orientations=orientation,
                     pixels_per_cell=(pixel_per_cell, pixel_per_cell),
                     cells_per_block=(2, 2),
                     visualise=True,
