@@ -80,17 +80,15 @@ class Classifier_HOG_SVM(object):
         print("Shape of gradient images is ", grad_images.shape)
         return img_hog, y, label_table, grad_images
 
-
-    def train(self):
+    def train(self, kernel="linear", C=1, gamma="auto"):
         """
         Training data
         :return:
         """
-        self.model = svm.SVC(kernel="linear", C=1, gamma="auto")
+        self.model = svm.SVC(kernel=kernel, C=C, gamma=gamma)
         start_time = time.time()
         self.model.fit(self.X_train, self.y_train)
         print("It takes ", time.time() - start_time, " seconds to train the model")
-
 
     def predict(self, x):
         """
@@ -99,7 +97,6 @@ class Classifier_HOG_SVM(object):
         :return:
         """
         return self.model.predict(x)
-
 
     def show_random_histogram(self):
         """
