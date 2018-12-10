@@ -2,8 +2,10 @@
   <dictionary name="xfeng">
     <words>
       <w>binarized</w>
+      <w>conv</w>
       <w>imgs</w>
       <w>preprocessing</w>
+      <w>relu</w>
       <w>resized</w>
       <w>thresholded</w>
     </words>

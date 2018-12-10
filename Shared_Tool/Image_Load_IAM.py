@@ -1,7 +1,8 @@
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
-
+import tensorflow as tf
+import collections
 
 class IAM_Img_Handler(object):
 
@@ -91,7 +92,7 @@ class IAM_Img_Handler(object):
             threshold_index = meta[2]
             img = self.get_image_by_index(img_index)
             try:
-                resized_img = cv2.resize(img, (512, 256))
+                resized_img = cv2.resize(img, (128, 32))
                 ret_val, thresholded_img = cv2.threshold(resized_img, threshold_index, 255, cv2.THRESH_BINARY)
                 img_list.append(thresholded_img)
             except:
@@ -102,3 +103,16 @@ class IAM_Img_Handler(object):
 
         img_list = np.dstack(img_list)
         return img_list, pics_meta
+
+    def encode_output(self, y):
+        '''
+        This is to
+        :param y:
+        :return:
+        '''
+        count = collections.Counter(y).most_common()
+        words_dict = {}
+        for word,_ in count:
+            words_dict[word] = len(words_dict)
+        reversed_word_dict = dict(zip(words_dict.values(), words_dict.keys()))
+        return words_dict, reversed_word_dict
