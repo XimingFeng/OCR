@@ -10,7 +10,9 @@ class Model:
         (3)CTC
             Computer loss according to the output of the
     '''
-    def __init__(self):
+    def __init__(self, batch_size):
+        self.batch_size = batch_size
+        
         pass
 
     def cnn_layers(self, X, kernel_sizes, filter_nums, pool_sizes):
@@ -25,7 +27,7 @@ class Model:
                             The same as kernel of conv layer, the row and column number are the same
         :return: a number of cnn layers
         '''
-        layer_input = X
+        layer_input = tf.placeholder(tf.float32)
         layer_num = len(kernel_sizes)
         for i in range(layer_num):
             conv_layer = tf.layers.conv2d(
@@ -41,7 +43,8 @@ class Model:
         cnn_model = pool_layer
         return cnn_model
 
-    def rnn_layers(self, X, layer):
+    def rnn_layers(self, X):
+        tf.contrib.rnn.LSTMCell(num_units=)
         pass
 
 

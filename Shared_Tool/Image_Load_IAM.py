@@ -88,20 +88,19 @@ class IAM_Img_Handler(object):
         pics_meta = self.meta_data[selected_meta_index]
         img_list = []
         for meta in pics_meta:
-            img_index = meta[0]
-            threshold_index = meta[2]
-            img = self.get_image_by_index(img_index)
             try:
+                img_index = meta[0]
+                threshold_index = meta[2]
+                img = self.get_image_by_index(img_index)
                 resized_img = cv2.resize(img, (128, 32))
                 ret_val, thresholded_img = cv2.threshold(resized_img, threshold_index, 255, cv2.THRESH_BINARY)
                 img_list.append(thresholded_img)
+
             except:
                 print("Something happened when trying to resize or threshold image, we just abandoned the image")
                 print("The image index is ", img_index)
 
-
-
-        img_list = np.dstack(img_list)
+        img_list = np.stack(img_list, axis=0)
         return img_list, pics_meta
 
     def encode_output(self, y):
